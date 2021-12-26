@@ -24,7 +24,6 @@ interface IRouteParams {
 }
 
 interface iData {
-  id: number,
   description: string,
   amountFormatted: string,
   frequency: string,
@@ -62,10 +61,8 @@ const List: React.FC<IRouteParams> = ({ match }) => {
   ]
 
   useEffect(() => {
-
     const response = listData.map(item => {
       return {
-        id: Math.random() * data.length,
         description: item.description,
         amountFormatted: formatCurrency(Number(item.amount)),
         frequency: item.frequency,
@@ -75,7 +72,7 @@ const List: React.FC<IRouteParams> = ({ match }) => {
     });
 
     setData(response);
-  }, []);
+  }, [data.length, listData]);
 
   return (
     <Container>
@@ -98,9 +95,9 @@ const List: React.FC<IRouteParams> = ({ match }) => {
 
       <Content>
         {
-          data.map(item => (
+          data.map((item, i) => (
             <HistoryFinanceCard
-              key={item.id}
+              key={i}
               tagColor={item.tagColor}
               title={item.description}
               subtitle={item.dateFormatted}
