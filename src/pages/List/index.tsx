@@ -1,4 +1,5 @@
 import React, { useMemo, useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 import ContentHeader from '../../components/ContentHeader';
 import SelectInput from '../../components/SelectInput';
@@ -15,14 +16,6 @@ import {
   Content
 } from './styles';
 
-interface IRouteParams {
-  match: {
-    params: {
-      type: string
-    }
-  }
-}
-
 interface iData {
   description: string,
   amountFormatted: string,
@@ -31,10 +24,10 @@ interface iData {
   tagColor: string
 }
 
-const List: React.FC<IRouteParams> = ({ match }) => {
+const List: React.FC = () => {
   const [data, setData] = useState<iData[]>([]);
 
-  const { type } = match.params;
+  const { type } = useParams();
 
   const title = useMemo(() => {
     return type === 'entry-balance' ? 'Entradas' : 'Saídas';
