@@ -40,7 +40,7 @@ const List: React.FC = () => {
     if (movimentType === 'entry-balance') {
       return {
         title: "Entradas",
-        lineColor: "#F7931B",
+        lineColor: "#4E41F0",
         data: gains
       }
     } else {
