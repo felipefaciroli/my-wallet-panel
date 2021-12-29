@@ -63,5 +63,7 @@ export const Legend = styled.li<ILegendProps>`
 `;
 
 export const SideRight = styled.main`
-  
+  display: flex;
+  flex: 1;
+  justify-content: center;
 `;
