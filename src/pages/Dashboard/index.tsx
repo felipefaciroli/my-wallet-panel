@@ -132,7 +132,7 @@ const Dashboard: React.FC = () => {
         icon: happyImg
       }
     }
-  }, [totalBalance, totalGains, totalBalance]);
+  }, [totalBalance, totalGains, totalExpenses]);
 
   const relationExpensesVersusGains = useMemo(() => {
     const total = totalGains + totalExpenses;
