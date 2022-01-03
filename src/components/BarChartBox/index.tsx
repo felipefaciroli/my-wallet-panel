@@ -63,6 +63,7 @@ const BarChartBox: React.FC<IBarChartBoxProps> = ({
               ))
             }
           </Bar>
+
           <Tooltip
             cursor={{ fill: 'none' }}
             formatter={(value: any) => formatCurrency(Number(value))}
